@@ -1,3 +1,6 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace rcsPlatform.Models
 {
     public class User
@@ -9,8 +12,7 @@ namespace rcsPlatform.Models
         [Required]
         [StringLength(100, MinimumLength = 6)]
         public string Password { get; set; }
-    
-    {
+
         public int Id { get; set; }
         public string Name { get; set; }
         // Additional properties for other columns

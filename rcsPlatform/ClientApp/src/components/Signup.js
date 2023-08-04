@@ -17,17 +17,30 @@ function Signup() {
 
     if (response.ok) {
       console.log('User registered successfully');
+      setRegisterFailed(false);
     } else {
       console.log('User registration failed');
+      setRegisterFailed(true);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
-      <input type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
-      <button type="submit">Signup</button>
-    </form>
+    <div>
+      <h1>Signup</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Email
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
+        </label>
+        <label>
+          Password
+          <input type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
+        </label>
+        <input type="checkbox" onClick={() => setShowPassword(!showPassword)} /> Show Password
+        <input type="submit" value="Signup" className="btn btn-primary" />
+        {registerFailed && <div className="alert alert-danger">Registration failed. Please try again.</div>}
+      </form>
+    </div>
   );
 }
 
