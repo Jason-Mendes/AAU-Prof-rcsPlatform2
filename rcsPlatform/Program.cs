@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 builder.Services.AddIdentityCore<IdentityUser>()
     .AddEntityFrameworkStores<rcsDbContext>();
 builder.Services.Configure<StaticFileOptions>(opt =>{
