@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AppRoutes from './AppRoutes';
 import { Layout } from './components/Layout';
+import Searchbox from './components/Searchbox';
 import './custom.css';
 
 export default class App extends Component {
@@ -10,6 +11,7 @@ export default class App extends Component {
   render() {
     return (
       <Layout>
+        <Searchbox /> {/* Add the SearchBox component */}
         <Routes>
         
           {AppRoutes.map((route, index) => {
